@@ -17,7 +17,7 @@
             /* 画面中央に固定 */
             transform: translateY(-50%) translateX(15px);
             /* 中央配置と右ずらし */
-            background: #13ca5e;
+            background: #ff69b4;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -102,7 +102,7 @@
         }
 
         h1 {
-            background: linear-gradient(135deg, #13ca5e, #0fa958);
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
             color: white;
             padding: 20px;
             border-radius: 0 15px 0px 45px;
@@ -127,7 +127,7 @@
             margin-bottom: 10px;
             padding: 3px;
             font-weight: 600;
-            background-color: #13ca5e;
+            background-color: #ff69b4;
             color: white;
             border-radius: 6px;
             font-size: 18px;
@@ -153,12 +153,12 @@
             align-items: center;
             justify-content: center;
             background: white;
-            color: #13ca5e;
+            color: #ff69b4;
             font-weight: bold;
             font-size: 0.9em;
             border-radius: 4px;
             padding: 2px 6px;
-            border: 2px solid #13ca5e;
+            border: 2px solid #ff69b4;
         }
 
         input[type="text"],
@@ -348,7 +348,7 @@
 
         /* 強調テキスト */
         .info-text strong {
-            color: #007bff;
+            color: #ff69b4;
         }
 
         /* モバイル向け調整 */
@@ -378,8 +378,8 @@
             line-height: 1.5;
             text-align: center;
             word-wrap: break-word;
-            background-color: #eef9f5;
-            /* 青っぽい背景色を追加 */
+            background-color: #fdeef4;
+            /* ピンクっぽい背景色に変更 */
             padding: 10px;
             border-radius: 4px;
         }
@@ -396,21 +396,48 @@
             }
         }
 
+        /* その他入力欄のスタイル */
+        .other-input {
+            display: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .other-input.show {
+            display: block;
+        }
+
+        .other-input textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ff69b4;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #fff9fc;
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .other-input textarea::placeholder {
+            color: #ff69b4;
+            font-style: italic;
+        }
 
         /* 100点の予約フォームCSS */
 
         input:focus,
         textarea:focus {
-            border-color: #13ca5e;
+            border-color: #ff69b4;
             outline: none;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.2);
         }
 
         button {
             padding: 12px;
             border: none;
             border-radius: 6px;
-            background-color: #13ca5e;
+            background-color: #ff69b4;
             color: #000000;
             font-size: 16px;
             cursor: pointer;
@@ -479,7 +506,7 @@
             left: 50%;
             transform: translate(-50%, -10px);
             /* Y方向に上げる */
-            background-color: #13ca5e;
+            background-color: #ff69b4;
             color: #fff;
             padding: 3px 12px;
             /* ボックスのパディングを縮小 */
@@ -488,8 +515,8 @@
             font-size: 1.4rem;
             /* フォントサイズを小さく */
             font-weight: bold;
-            box-shadow: 0 2px 6px rgba(47, 103, 167, 0.2);
-            /* 影も控えめに */
+            box-shadow: 0 2px 6px rgba(255, 105, 180, 0.2);
+            /* ピンクの影に変更 */
         }
 
         /* ナビゲーションバー */
@@ -512,13 +539,13 @@
             text-align: center;
             font-size: 14px;
             margin-bottom: 10px;
-            background: #4a90e2;
+            background: #ff69b4;
             border-radius: 5px;
             transition: background 0.3s;
         }
 
         .sidebar a:hover {
-            background: #357ac4;
+            background: #ff1493;
         }
 
         /* スクロール用のセクション */
@@ -553,7 +580,11 @@
             <button type="button" class="one" onclick="selectone(this)">ボディーラインの崩れ</button>
             <button type="button" class="one" onclick="selectone(this)">リフトアップ</button>
             <button type="button" class="one" onclick="selectone(this)">（しみ、しわ）</button>
-            <button type="button" class="one" onclick="selectone(this)">その他</button>
+            <button type="button" class="one" onclick="selectone(this, 'other1')">その他</button>
+        </div>
+        <!-- お悩みの「その他」入力欄 -->
+        <div class="other-input" id="other1-input">
+            <textarea id="other1-text" placeholder="お悩みの詳細を入力してください"></textarea>
         </div>
 
         <!--必須を追加する場合　<span class="required">必須</span>-->
@@ -564,7 +595,11 @@
             <button type="button" class="two" onclick="selecttwo(this)">癒し</button>
             <button type="button" class="two" onclick="selecttwo(this)">楽しい会話</button>
             <button type="button" class="two" onclick="selecttwo(this)">ストレス解消</button>
-            <button type="button" class="two" onclick="selecttwo(this)">その他</button>
+            <button type="button" class="two" onclick="selecttwo(this, 'other2')">その他</button>
+        </div>
+        <!-- サロンに期待することの「その他」入力欄 -->
+        <div class="other-input" id="other2-input">
+            <textarea id="other2-text" placeholder="期待することの詳細を入力してください"></textarea>
         </div>
 
         <div class="label"><span class="required">必須</span>当店を紹介したいお知り合いはいますか？</div>
@@ -613,25 +648,59 @@
             }
         }
 
-        function selectone(element) {
+        // その他入力欄の表示/非表示を制御
+        function toggleOtherInput(otherId, show) {
+            const otherInput = document.getElementById(otherId + '-input');
+            if (show) {
+                otherInput.classList.add('show');
+            } else {
+                otherInput.classList.remove('show');
+                // 入力欄をクリア
+                document.getElementById(otherId + '-text').value = '';
+            }
+        }
+
+        function selectone(element, otherId) {
             // すでに active クラスが付いていれば外し、付いていなければ追加する（トグル）
             element.classList.toggle('active');
 
+            // その他ボタンの処理
+            if (otherId) {
+                toggleOtherInput(otherId, element.classList.contains('active'));
+            }
+
             // 選択されているすべてのボタンのテキストを取得して配列にする
             const activeButtons = document.querySelectorAll('.one-buttons button.active');
-            const selectedones = Array.from(activeButtons).map(button => button.innerText);
+            const selectedones = Array.from(activeButtons).map(button => {
+                if (button.innerText === 'その他') {
+                    const otherText = document.getElementById('other1-text').value;
+                    return otherText ? `その他（${otherText}）` : 'その他';
+                }
+                return button.innerText;
+            });
 
             // 必要に応じて選択された内容を格納
             oneCount = selectedones;  // 配列として保持
         }
 
-        function selecttwo(element) {
+        function selecttwo(element, otherId) {
             // すでに active クラスが付いていれば外し、付いていなければ追加する（トグル）
             element.classList.toggle('active');
 
+            // その他ボタンの処理
+            if (otherId) {
+                toggleOtherInput(otherId, element.classList.contains('active'));
+            }
+
             // 選択されているすべてのボタンのテキストを取得して配列にする
             const activeButtons = document.querySelectorAll('.two-buttons button.active');
-            const selectedtwos = Array.from(activeButtons).map(button => button.innerText);
+            const selectedtwos = Array.from(activeButtons).map(button => {
+                if (button.innerText === 'その他') {
+                    const otherText = document.getElementById('other2-text').value;
+                    return otherText ? `その他（${otherText}）` : 'その他';
+                }
+                return button.innerText;
+            });
 
             // 必要に応じて選択された内容を格納
             twoCount = selectedtwos;  // 配列として保持
@@ -651,15 +720,31 @@
         function submitForm() {
             const message = document.getElementById('message').value;
             const message2 = document.getElementById('message2').value;
-            oneCount: oneCount;
-            twoCount: twoCount;
-            threeCount: threeCount;
+            
+            // その他の入力内容を反映
+            const activeOneButtons = document.querySelectorAll('.one-buttons button.active');
+            const finalOneCount = Array.from(activeOneButtons).map(button => {
+                if (button.innerText === 'その他') {
+                    const otherText = document.getElementById('other1-text').value;
+                    return otherText ? `その他（${otherText}）` : 'その他';
+                }
+                return button.innerText;
+            });
+
+            const activeTwoButtons = document.querySelectorAll('.two-buttons button.active');
+            const finalTwoCount = Array.from(activeTwoButtons).map(button => {
+                if (button.innerText === 'その他') {
+                    const otherText = document.getElementById('other2-text').value;
+                    return otherText ? `その他（${otherText}）` : 'その他';
+                }
+                return button.innerText;
+            });
 
             const formData = {
                 message,
                 message2,
-                oneCount,
-                twoCount,
+                oneCount: finalOneCount,
+                twoCount: finalTwoCount,
                 threeCount,
             };
 
@@ -670,13 +755,13 @@
             }
 
             // フォームデータのチェック
-            if (!formData.oneCount) {
+            if (!formData.oneCount || formData.oneCount.length === 0) {
                 alert('お悩みをご選択ください。');
                 return;
             }
                         
             // フォームデータのチェック
-            if (!formData.twoCount) {
+            if (!formData.twoCount || formData.twoCount.length === 0) {
                 alert('サロンに期待することをご選択ください。');
                 return;
             }
@@ -687,10 +772,23 @@
                 return;
             }
 
+            // その他を選択したが入力が空の場合のチェック
+            const other1Active = document.querySelector('.one-buttons button[onclick*="other1"].active');
+            if (other1Active && !document.getElementById('other1-text').value.trim()) {
+                alert('お悩みの「その他」を選択した場合は詳細を入力してください。');
+                return;
+            }
+
+            const other2Active = document.querySelector('.two-buttons button[onclick*="other2"].active');
+            if (other2Active && !document.getElementById('other2-text').value.trim()) {
+                alert('サロンに期待することの「その他」を選択した場合は詳細を入力してください。');
+                return;
+            }
+
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `≪アンケート≫\n【お名前】\n・${formData.message}\n\n【お悩み】\n・${formData.oneCount}\n\n【サロンに期待すること】\n・${formData.twoCount}\n\n【店を紹介したいお知り合いはいますか？】\n・${formData.threeCount}\n\n【ご要望】\n・${formData.message2}`
+                text: `≪アンケート≫\n【お名前】\n・${formData.message}\n\n【お悩み】\n・${formData.oneCount.join('\n・')}\n\n【サロンに期待すること】\n・${formData.twoCount.join('\n・')}\n\n【店を紹介したいお知り合いはいますか？】\n・${formData.threeCount}\n\n【ご要望】\n・${formData.message2}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('ご記入ありがとうございます。');
